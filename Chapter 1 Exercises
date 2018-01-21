@@ -44,14 +44,14 @@ a) C++ programs normally go through six phases - edit, preprocess, compile, link
 b) An Integrated Development Environment (IDE) provides many tools that support the software development process, such as editors for writing and editing programs, debuggers for locating logical errors in programs, and many other feature.
 
 1.7
-	Object - the watch itself
-	Attribute - brand, color, type
-	Behaviors - time display, time set by user
-	Class - a “clock” class, uses same functions
-	Inheritance - inherits properties from an alarm clock object and date object
-	Modeling - modeled by functionalities like time display, setting time
-	Messages - the needles of the watch showing the time, or digital output of the time
-	Encapsulation - how the time is calculated is hidden in the watch
-	Interface - the button or dial to set the time
-	Information Hiding - how the time is calculated is hidden within the watch
+Object - the watch itself
+Attribute - brand, color, type
+Behaviors - time display, time set by user
+Class - a “clock” class, uses same functions
+Inheritance - inherits properties from an alarm clock object and date object
+Modeling - modeled by functionalities like time display, setting time
+Messages - the needles of the watch showing the time, or digital output of the time
+Encapsulation - how the time is calculated is hidden in the watch
+Interface - the button or dial to set the time
+Information Hiding - how the time is calculated is hidden within the watch
 
