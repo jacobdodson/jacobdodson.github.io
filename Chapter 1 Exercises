@@ -1,1 +1,57 @@
+1.1	
+a) Computer process data under the control of sets of instructions called programs.
+b) The key logical units of the computer are input unit, output unit, memory unit, central processing unit, arithmetic and logic unit and secondary storage unit.
+c) The three types of languages discussed in the chapter are machine languages, assembly languages and high-level languages.
+d) The programs that translate high-level language programs into machine language are called compilers.
+e) Android is an operating system for mobile devices based on the Linux kernel and Java.
+f) Release candidate software is generally feature complete and (supposedly) bug free and for for use by the community.
+g) The Wii Remote, as well as many smartphones, uses an) accelerometer which allows the device to respond to motion.
+
+1.2	
+a) C++ programs are normally types into a computer using an editor.
+	
+b) In a C++ system, a(n) preprocessor program executes before the compiler’s translation phase begins.
+c) The linker program combines the output of the compiler with various library functions to produce and executable program.
+d) The loader program transfers the executable program from disk to memory.
+
+1.3	
+a) Objects have the property of information hiding-although objects may know how to communicate with one another across well-defined interfaces, they normally are not allowed to know how other objects are implemented.
+b) C++ programmers concentrate on creating classes, which contain data members and the member functions that manipulate those data members and provide services to clients.
+c) the process of analyzing and designing a system from an object-oriented point of view 
+is called object-oriented analysis and design (OOAD).
+d) With inheritance, new classes of objects are derived by absorbing characteristics of existing classes, then adding unique characteristics of their own.
+e) The Unified Modeling Language (UML) is a graphical language that allows people who design software systems to use an industry-standard notation to represent them.
+f) The size, shape, color and weight of an object are considered attributes of the object’s class.
+
+1.4
+a)  The logical unit of the computer that receives information from outside the computer for use by the computer is the input unit.
+b) The process of instructing the computer to solve a problem is called computer programming. 
+c) Assembly language is a type of computer language that uses English-like abbreviations for machine-language instructions.
+d) Output unit is a logical unit of the computer that sends information which has already been processed by the computer to various devices so that it may be used outside the computer.
+e) Memory unit and secondary storage are logical units of the computer that retain information.
+f) Arithmetic unit is a logical unit of the computer that performs calculations.
+g) Logical unit is a logical unit of the computer that makes logical decisions.
+h) High level languages are most convenient to the programmer for writing programs quickly and easily.
+i) the language a computer can directly understand is that computer’s machine language.
+j) Central Processing Unit (CPU) is a logical unit of the computer that coordinates the activities of all other logical units.
+
+1.5	
+a)  C language initially became widely known as the development language of the UNIX operating system.
+b) The C++ programing language was developed by Bjarne Stroustrup in the early 1980’s at Bell Laboratories.
+
+1.6	
+a) C++ programs normally go through six phases - edit, preprocess, compile, link, load and execute. 
+b) An Integrated Development Environment (IDE) provides many tools that support the software development process, such as editors for writing and editing programs, debuggers for locating logical errors in programs, and many other feature.
+
+1.7
+	Object - the watch itself
+	Attribute - brand, color, type
+	Behaviors - time display, time set by user
+	Class - a “clock” class, uses same functions
+	Inheritance - inherits properties from an alarm clock object and date object
+	Modeling - modeled by functionalities like time display, setting time
+	Messages - the needles of the watch showing the time, or digital output of the time
+	Encapsulation - how the time is calculated is hidden in the watch
+	Interface - the button or dial to set the time
+	Information Hiding - how the time is calculated is hidden within the watch
 
