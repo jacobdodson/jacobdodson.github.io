@@ -1,0 +1,145 @@
+// Example 2.16.cpp : Find the sum, difference, product and quotient of two integers
+//
+
+#include "stdafx.h"
+#include <iostream>
+
+using namespace std;
+
+int main()
+{
+	int number1{ 0 };			// First integer
+	int number2{ 0 };			// Second integer
+	int sum{ 0 };				// sum
+	int difference{ 0 };		// difference
+	int quotient{ 0 };			// quotient
+	int product{ 0 };			// product
+
+	cout << "Enter the first integer: ";	//Prompt for first integer
+	cin >> number1;
+
+	cout << "Enter the second integer: ";	//Prompt for second integer
+	cin >> number2;
+
+	sum = number1 + number2;			//Calculations of sum, product, difference and quotient
+	product = number1 * number2;
+	difference = number1 - number2;
+	quotient = number1 / number2;
+
+	cout << "Sum: " << sum << endl;					//Output for sum, product, difference and quotient
+	cout << "Product: " << product << endl;
+	cout << "Difference: " << difference << endl;
+	cout << "Quotient: " << quotient << endl;
+
+	system("pause");
+
+    return 0;
+}
+
+// Exercise 2.20.cpp : Program to find a circle's diameter, circumfrence and area.
+//
+
+#include "stdafx.h"
+#include <iostream>
+
+using namespace std;
+
+int main()
+{
+	int radius;		// Declaring variables
+	int diameter;
+	int circumfrence;
+	int area;
+
+	cout << "Input a radius for a circle: ";	// Prompt for radius
+	cin >> radius;
+
+	diameter = radius * 2;								// Calculation for diamter and display of diameter as a integer
+	cout << "The diameter is " << diameter << endl;		
+
+	circumfrence = radius * 2 * 3.14159;						// Calculation for circumfrence and display of circumfrence as a integer
+	cout << "The circumfrence is " << circumfrence << endl;
+
+	area = radius * radius * 3.14159;			// // Calculation for area and display of area as a integer
+	cout << "The area is " << area << endl;
+
+	system("pause");
+
+    return 0;
+}
+
+// Exercise 2.28.cpp : Taking a 5 digit number and seperating the digits with spaces
+//
+
+#include "stdafx.h"
+#include <iostream>
+
+using namespace std;
+
+int main()
+{
+	int number;		//Store number from user
+	int digit1;		//integer to store first digit
+	int digit2;		//integer to store second digit
+	int digit3;		//integer to store third digit
+	int digit4;		//integer to store fourth digit
+	int digit5;		//integer to store fifth digit
+	
+	cout << "Enter a 5 digit number: ";		//Prompt for 5 digit number
+	cin >> number;
+
+	digit5 = number % 10;	//Storing last digit in digit5
+
+	number = number / 10;	// Getting rid of 5th digit.
+	digit4 = number % 10;	//Storing last digit in digit4
+
+	number = number / 10;	// Getting rid of 4th digit.
+	digit3 = number % 10;	//Storing last digit in digit4
+
+	number = number / 10;	// Getting rid of 3rd digit.
+	digit2 = number % 10;	//Storing last digit in digit4
+
+	number = number / 10;	// Getting rid of 2nd digit.
+	digit1 = number % 10;	//Storing last digit in digit4
+
+	cout << digit1 << " " << digit2 << " " << digit3 << " " << digit4 << " " << digit5;		// Output of number with spaces
+
+	system("pause");
+
+    return 0;
+}
+
+// Exercise 2.30.cpp : Program to calculate BMI and shows chart to self-evaulate BMI
+//
+
+#include "stdafx.h"
+#include <iostream>
+
+using namespace std;
+
+int main()
+{
+	int weight;			// Declaration of variables
+	int height;
+	int bmi;
+
+	cout << "Enter your weight in pounds: ";		//Prompt for weight in pounds
+	cin >> weight;
+
+	cout << "Enter your height in inches: ";		//Prompt for height in inches
+	cin >> height;
+
+	bmi = (weight * 703) / (height * height);	  //BMI calculation and output
+	cout << "Your BMI is: " << bmi << endl << endl;
+
+	cout << "BMI Values\n";				//BMI chart
+	cout << "----------\n";
+	cout << "Underweight:\t Less than 18.5\n";
+	cout << "Normal:\t\t Between 18.5 and 24.9\n";
+	cout << "Overweight:\t Between 25 and 29.9\n";
+	cout << "Obese:\t\t 30 or greater\n";
+
+	system("pause");
+
+  return 0;
+}
