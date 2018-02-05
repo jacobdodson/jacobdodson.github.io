@@ -1,0 +1,345 @@
+// chap3AccountEx.cpp : Defines the entry point for the console application.
+//
+
+#include "stdafx.h"
+#include <iostream>
+#include <string>
+#include "Account.h"
+
+using namespace std;
+
+int main()
+{
+	Account account1{ "Jane Green", 50 };
+	Account account2{ "John Blue", -7 };
+
+	cout << "Account1 name is : " << account1.getName() << "\nBalance is $" << account1.getBalance() << endl;
+	cout << "Account1 name is : " << account2.getName() << "\nBalance is $" << account2.getBalance() << endl;
+
+	cout << "\nEnter deposit amount for account1: ";
+	int depositAmount;
+	cin >> depositAmount;
+	cout << "\nAdding " << depositAmount << " to account1 balance" << endl;
+	account1.deposit(depositAmount);
+
+	cout << "\nAccount1 name is : " << account1.getName() << "\nBalance is $" << account1.getBalance() << endl;
+	cout << "Account1 name is : " << account2.getName() << "\nBalance is $" << account2.getBalance() << endl;
+
+	cout << "\nEnter deposit amount for account2: ";
+	cin >> depositAmount;
+	cout << "\nAdding " << depositAmount << " to account2 balance" << endl;
+	account2.deposit(depositAmount);
+
+	cout << "\nAccount1 name is : " << account1.getName() << "\nBalance is $" << account1.getBalance() << endl;
+	cout << "Account1 name is : " << account2.getName() << "\nBalance is $" << account2.getBalance() << endl;
+
+	cout << "\nEnter withdrawal amount for account1: ";
+	int withdrawAmount;
+	cin >> withdrawAmount;
+	cout << "\nRemoving " << withdrawAmount << " from account1 balance" << endl;
+	account1.withdraw(withdrawAmount);
+
+	cout << "\nAccount1 name is : " << account1.getName() << "\nBalance is $" << account1.getBalance() << endl;
+	cout << "Account1 name is : " << account2.getName() << "\nBalance is $" << account2.getBalance() << endl;
+
+	cout << "\nEnter withdrawal amount for account2: ";
+	cin >> withdrawAmount;
+	cout << "\nRemoving " << withdrawAmount << " from account2 balance" << endl;
+	account2.withdraw(withdrawAmount);
+
+	cout << "\nAccount1 name is : " << account1.getName() << "\nBalance is $" << account1.getBalance() << endl;
+	cout << "Account1 name is : " << account2.getName() << "\nBalance is $" << account2.getBalance() << endl;
+
+	return 0;
+}
+//exer3.9 header
+//Account.h
+
+#include <string>
+
+class Account {
+	public:
+
+		Account(std::string accountName, int initialBalance) 
+			: name{ accountName } {
+			if (initialBalance < 0) {
+				balance = 0;
+			}
+		}
+
+		void withdraw(int withdrawAmount) {
+			if (withdrawAmount > balance) {
+				std::cout << "Withdrawal amount exceeded account balance." << std::endl;
+			}
+			else {
+				balance = balance - withdrawAmount;
+			}
+		}
+
+		void deposit(int depositAmount) {
+			if (depositAmount > 0) {
+				balance = balance + depositAmount;
+			}
+		}
+
+		int getBalance() const {
+			return balance;
+		}
+
+		void setName(std::string accountName) {
+			name = accountName;
+		}
+
+		std::string getName() const {
+			return name;
+		}
+
+
+	private:
+		std::string name;
+		int balance{ 0 };
+};
+
+
+// exer3.10.cpp : showing invoice capabilities
+//
+
+#include "stdafx.h"
+#include <iostream>
+#include <string>
+#include "Invoice.h"
+
+using namespace std;
+
+int main()
+{
+	Invoice item1{ "12345", "Hammer", 5, 3 };
+	Invoice item2{ "54321", "Screwdriver", 4, 2 };
+
+	int total{ item1.getInvoiceAmount() + item2.getInvoiceAmount() };
+
+	cout << "Item 1 " << "\nPart Number: " << item1.getNumber() << "\nDescription: " << item1.getDesc() << endl;
+	cout << "Amount bought: " << item1.getQuantity();
+	cout << "\nPrice: $" << item1.getPrice();
+
+	cout << "\n\nItem 2 " << "\nPart Number: " << item2.getNumber() << "\nDescription: " << item2.getDesc() << endl;
+	cout << "Amount bought: " << item2.getQuantity();
+	cout << "\nPrice: $" << item2.getPrice();
+
+	cout << "\n\nTotal: $" << total << endl; 
+
+    return 0;
+}
+// Exer3.10 header
+// Invoice.h
+
+#include <string>
+
+class Invoice {
+
+	public:
+
+		Invoice(std::string partNumber, std::string partDesc, int partQuantity, int partPrice)
+			: number{ partNumber }, desc{ partDesc } {
+			if (partQuantity > 0) {
+				quantity = partQuantity;
+			}
+			if (partPrice > 0) {
+				price = partPrice;
+			}
+		}
+
+		int getInvoiceAmount() {	
+			return quantity * price;
+		}
+
+		void setNumber(std::string partNumber) {
+			number = partNumber;
+		}
+
+		std::string getNumber() const {
+			return number;
+		}
+
+		void setDesc(std::string partDesc) {
+			desc = partDesc;
+		}
+
+		std::string getDesc() const {
+			return desc;
+		}
+
+		void setQuantity(int partQuantity) {
+			quantity = partQuantity;
+		}
+
+		int getQuantity() const {
+			return quantity;
+		}
+
+		void setPrice(int partPrice) {
+			price = partPrice;
+		}
+
+		int getPrice() const{
+			return price;
+		}
+
+	private:
+		std::string number;		//Part number
+		std::string desc;		//Part description
+		int quantity{ 0 };		//Part quantity
+		int price{ 0 };			//Part price
+
+};
+
+// exer3.12.cpp : demonstartes class Date's capabilities
+//
+
+#include "stdafx.h"
+#include "Date.h"
+#include<iostream>
+
+using namespace std;
+
+int main()
+{
+	Date date1{ 4, 2, 2018 };
+	Date date2{ 4, 13, 2018 };
+
+	date1.displayDate();
+	date2.displayDate();
+
+    return 0;
+}
+
+//exer3.12 header
+//Date.h
+
+#include <string>
+#include <iostream>
+
+class Date {
+	
+	public:
+		
+		Date(int dateDay, int dateMonth, int dateYear)
+			: day{ dateDay }, year{ dateYear } {
+			if (dateMonth < 13 && dateMonth > 0) {
+				month = dateMonth;
+			}
+		}
+
+		void setDay(int dateDay) {
+			day = dateDay;
+		}
+
+		int getDay() const {
+			return day;
+		}
+
+		void setMonth(int dateMonth) {
+			month = dateMonth;
+		}
+
+		int getMonth() const {
+			return month;
+		}
+
+		void setYear(int dateYear) {
+			year = dateYear;
+		}
+
+		int getYear() const {
+			return year;
+		}
+
+		void displayDate() {
+			std::cout << "The date is " << month << "/" << day << "/" << year << std::endl;
+		}
+
+	private:
+		int day{ 0 };
+		int month{ 1 };
+		int year{ 0 };
+};
+
+// exer3.13.cpp : modified account program to include displayAccount
+//
+
+#include "stdafx.h"
+#include <iostream>
+#include "Account.h"
+
+using namespace std;
+
+int main()
+{
+	Account account1{ "Jane Green", 50 };
+	Account account2{ "John Blue", -7 };
+
+	cout << "account1: "; account1.displayAccount(account1);
+	cout << "account2: "; account2.displayAccount(account2);
+
+	cout << "\nEnter deposit amount for account1: ";
+	int depositAmount;
+	cin >> depositAmount;
+	cout << "adding " << depositAmount << " to account1 balance";
+	account1.deposit(depositAmount);
+
+	cout << "\n\naccount1: "; account1.displayAccount(account1);
+	cout << "account2: "; account2.displayAccount(account2);
+
+	cout << "\nEnter deposit amount for account2: ";
+	cin >> depositAmount;
+	cout << "adding " << depositAmount << " to account2 balance";
+	account2.deposit(depositAmount);
+
+	cout << "\n\naccount1: "; account1.displayAccount(account1);
+	cout << "account2: "; account2.displayAccount(account2);
+
+    return 0;
+}
+
+//exercise 3.13 header
+//Account.h
+
+#include <string>
+
+class Account {
+
+	public: 
+		Account(std::string accountName, int initialBalance)
+			: name{ accountName } {
+			if (initialBalance > 0) {
+				balance = initialBalance;
+			}
+		}
+
+		void deposit(int depositAmount) {
+			if (depositAmount > 0) {
+				balance = balance + depositAmount;
+			}
+		}
+
+		int getBalance() const {
+			return balance;
+		}
+
+		void setName(std::string accountName) {
+			name = accountName;
+		}
+
+		std::string getName() const {
+			return name;
+		}
+
+		void displayAccount(Account accountToDisplay) {
+			std::cout << accountToDisplay.getName() << " balance is $" << accountToDisplay.getBalance() << std::endl;
+		}
+
+	private:
+		std::string name;
+		int balance{ 0 };
+
+};
