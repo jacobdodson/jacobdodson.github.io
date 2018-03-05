@@ -1,0 +1,256 @@
+// exer4.13.cpp : Prints miles per gallon	
+
+#include "stdafx.h"
+#include <iostream>
+
+using namespace std;
+
+int main()
+{
+	int miles{ 0 };
+	int total_miles{ 0 };
+	double gallons{ 0.0 };
+	double total_gallons{ 0.0 };
+
+	while (miles != -1)
+	{
+		cout << "Enter miles travels (-1 to Quit): ";
+		cin >> miles;
+
+		if (miles != -1)
+		{
+			cout << "Enter gallons used: ";
+			cin >> gallons;
+
+			total_miles = total_miles + miles;
+			total_gallons = total_gallons + gallons;
+			cout << "The miles per gallon for this trip: " << miles / gallons << endl;
+			cout << "Total miles per gallon: " << total_miles / total_gallons << endl << endl;
+		}
+	}
+    return 0;
+}
+
+// exer4.17.cpp : shows largest number out of 10 numbers 1 number at a time
+//
+#include "stdafx.h"
+#include <iostream>
+
+using namespace std;
+
+int main()
+{
+	int counter{ 0 };
+	int number{ 0 };
+	int largest{ 0 };
+
+	cout << "Enter 10 numbers one at a time: " << endl;
+	while (counter < 10)
+	{
+		cin >> number;
+		if (largest < number)
+			largest = number;
+			counter = counter + 1;
+	}
+	cout << "Largest in the group was: " << largest << endl;
+    return 0;
+}
+
+// exer4.26.cpp : displaying hollow square of asterisks 
+//
+
+#include "stdafx.h"
+#include <iostream>
+
+using namespace std;
+
+void drawSolidRow(int n) {
+	int counter{ 0 };
+
+	while(counter < n){
+		cout << "*";
+		counter += 1;
+	}
+	cout << endl;
+}
+void drawHollowRow(int n) {
+	int counter{ 2 };
+	cout << "*";
+
+	while (counter < n ) {
+		cout << " ";
+		counter += 1;
+	}
+	cout << "*" << endl;
+}
+void drawBox(int size) {
+	drawSolidRow(size);
+	int counter{ 2 };
+
+	while (counter < size) {
+		drawHollowRow(size);
+		counter += 1;
+	}
+	if (size != 1) {
+		drawSolidRow(size);
+	}
+}
+
+int main(){
+	drawBox(10);
+
+	return 0;
+}
+
+// exer4.35a.cpp : displays non-negative factorials
+//
+
+#include "stdafx.h"
+#include <iostream>
+
+using namespace std;
+
+int main(){
+	int number{ 0 };
+	int factorial{ 1 };
+	int sum{ 1 };
+
+	cout << "Enter a positive integer: ";
+	cin >> number;
+
+	while (factorial <= number) {
+		sum = sum * factorial;
+		factorial += 1;
+	}
+	cout << number << "! equals: " << sum << endl;
+
+	return 0;
+}
+
+// exer4.35b.cpp : estimate of mathematical constant e
+//
+#include "stdafx.h"
+#include <iostream>
+#include <iomanip>
+
+using namespace std;
+
+int main(){
+	int number{ 0 };
+	int factorial{ 1 };
+	int factorialSum{ 1 };
+	double sum{ 1 };
+
+	cout << "How many terms do you want included in the summation of e: ";
+	cin >> number;
+
+	while (factorial <= number) {
+		factorialSum = factorialSum * factorial;
+		factorial = factorial + 1;
+		sum = sum + (1 / static_cast<double>(factorialSum));	
+	}
+	cout << "The estimation of the summation is: " << sum << endl;
+  
+	return 0;
+}
+
+// exer4.35_c.cpp : finds the summation of e^x
+
+#include "stdafx.h"
+#include <iostream>
+
+using namespace std;
+
+int main(){
+	int number{ 0 };
+	int exponent{ 1 };
+	int factorial{ 1 };
+	int factorialSum{ 1 };
+	double sum{ 1 };
+
+	cout << "How many terms do you want included in the summation of e: ";
+	cin >> number;
+
+	while (factorial <= number) {
+		factorialSum = factorialSum * factorial;
+		factorial = factorial + 1;
+		sum = sum + (pow(number,exponent)  / static_cast<double>(factorialSum));
+		exponent = exponent + 1;
+	}
+	cout << "The estimation of the summation is: " << sum << endl;
+}
+
+// exer4.36.cpp : modified account class
+//
+#include "stdafx.h"
+#include <iostream>
+#include <iomanip>
+#include "Account.h"
+
+using namespace std;
+
+int main()
+{
+	double depositAmount{ 0 };
+
+	Account account1{ "Jane Green", 50.50 };
+	Account account2{ "John Blue", 7.02 };
+
+	cout << "\n\naccount1: " << setprecision(2) << fixed << account1.getName() << " balance is $" << account1.getBalance();
+	cout << "\naccount2: " << setprecision(2) << fixed << account2.getName() << " balance is $" << account2.getBalance();
+
+	cout << "\n\nEnter deposit amount for account1: ";
+	cin >> depositAmount;
+	cout << "adding: " << depositAmount << " to account1 balance";
+	account1.deposit(depositAmount);
+
+	cout << "\n\naccount1: " << setprecision(2) << fixed << account1.getName() << " balance is $" << account1.getBalance();
+	cout << "\naccount2: " << setprecision(2) << fixed << account2.getName() << " balance is $" << account2.getBalance();
+
+	cout << "\n\nEnter deposit amount for account2: ";
+	cin >> depositAmount;
+	cout << "adding: " << depositAmount << " to account2 balance";
+	account2.deposit(depositAmount);
+
+	cout << "\n\naccount1: " << setprecision(2) << fixed << account1.getName() << " balance is $" << account1.getBalance();
+	cout << "\naccount2: " << setprecision(2) << fixed << account2.getName() << " balance is $" << account2.getBalance() << endl;
+
+	return 0;
+}
+#include <string>
+
+class Account {
+public:
+	Account(std::string accountName, double initialBalance)
+		: name{ accountName } {
+
+		if (initialBalance > 0) {
+			balance = initialBalance;
+		}
+	}
+
+	void deposit(double depositAmount) {
+		if (depositAmount > 0) {
+			balance = balance + depositAmount;
+		}
+	}
+
+	double getBalance() const {
+		return balance;
+	}
+
+	void setName(std::string accountName) {
+		name = accountName;
+	}
+
+	std::string getName() const {
+		return name;
+	}
+
+private:
+	std::string name;
+	double balance{ 0 };
+};
+
+
+
