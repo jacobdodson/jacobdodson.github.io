@@ -102,15 +102,15 @@ int main()
 	cout << "Celsius\t\tFahrenheit" << endl;
 	cout << "--------------------------" << endl;
 
-	for( int counter = 0; counter <= 100; counter++ )
+	for( int counter = 0; counter <= 100; counter++ ){
 		cout << counter << "\t\t" << Fahrenheit( counter ) << endl;
-
+	}
 	cout << "\nFahrenheit\t\tCelsius" << endl;
 	cout << "--------------------------" << endl;
 
-	for( int counter = 32; counter <= 212; counter++ )
+	for( int counter = 32; counter <= 212; counter++ ){
 		cout << counter << "\t\t" << fixed << setprecision(2) << Celsius( counter ) << endl;
-
+	}
 	system( "pause" );
     return 0;
 }
