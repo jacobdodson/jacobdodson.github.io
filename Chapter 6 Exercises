@@ -1,1 +1,155 @@
 
+// exer6.24.cpp : Seperating Digits
+//
+
+#include "stdafx.h"
+#include <iostream>
+#include <string>
+
+using namespace std;
+
+void printDigits() {
+	cout << "Enter a digit between 1 and 32767: " << endl;
+	int input{ 0 };
+	cin >> input;
+
+	if( input > 0 && input < 32768) {
+		int i{ 0 };
+		int divisor{ 1000 };
+		string output{ to_string( input ) };
+			
+		while( i < output.length() ) {
+			int mod{ divisor * 10 };
+			cout << (input%mod) / divisor << " ";
+			divisor = divisor / 10;
+			++i;
+		}
+	}
+}
+
+int main(){	
+	int a{ 100 };
+	int b{ 50 };
+	int quotient{ a / b };
+	int remainder{ a%b };
+
+	cout << "a / b: " << quotient << "\na % b: " << remainder << endl;
+
+	printDigits();
+
+	system( "pause" );
+    return 0;
+}
+
+// exer6.25.cpp : Number of seconds
+// 
+
+#include "stdafx.h"
+#include<iostream>
+#include "Clock.h"
+#include<cmath>
+
+using namespace std;
+
+int main()
+{
+	Clock time1{ 6, 10, 20 };
+	Clock time2{ 3, 5, 10 };
+
+	time1.displaySeconds( time1 );
+	time2.displaySeconds( time2 );
+
+	cout << "There are " << abs( time1.sinceTwelve() - time2.sinceTwelve() ) << " seconds between time1 and time 2." << endl;
+
+	system( "pause" );
+    return 0;
+}
+#include<string>
+
+class Clock {
+	public:
+		explicit Clock( int hours , int minutes , int seconds )
+			: amountSeconds{ seconds } {
+			amountSeconds = amountSeconds + (3600 * hours) + (60 * minutes);
+		}
+		int getAmountSeconds() const {
+			return amountSeconds;
+		}
+		int sinceTwelve() const {
+			return 43200 - amountSeconds;
+		}
+		void displaySeconds( Clock time ) {
+			std::cout << "It has been " << time.sinceTwelve() << " seconds since the clock has struck 12" << std::endl;
+		}
+	private:
+		int amountSeconds{ 0 };
+};
+
+// exer6.26.cpp : Celsius and Fahrenheit Temp conversions
+//
+#include "stdafx.h"
+#include <iostream>
+#include <cmath>
+#include <iomanip>
+
+using namespace std;
+
+double Celsius( int );
+double Fahrenheit( int );
+
+int main()
+{
+	cout << "Celsius\t\tFahrenheit" << endl;
+	cout << "--------------------------" << endl;
+
+	for( int counter = 0; counter <= 100; counter++ )
+		cout << counter << "\t\t" << Fahrenheit( counter ) << endl;
+
+	cout << "\nFahrenheit\t\tCelsius" << endl;
+	cout << "--------------------------" << endl;
+
+	for( int counter = 32; counter <= 212; counter++ )
+		cout << counter << "\t\t" << fixed << setprecision(2) << Celsius( counter ) << endl;
+
+	system( "pause" );
+    return 0;
+}
+double Celsius( int F ) {
+	return ((5 * F - 160) / 9.0);
+}
+double Fahrenheit( int C ) {
+	return ((9 * C + 160 / 5.0));
+}
+
+// exer6.27.cpp : smallest number
+//
+
+#include "stdafx.h"
+#include <iostream>
+
+using namespace std;
+
+float smallest( float , float , float );
+
+int main(){
+	float number1{ 0 };
+	float number2{ 0 };
+	float number3{ 0 };
+	 
+	cout << "Enter 3 numbers: ";
+	cin >> number1 >> number2 >> number3;
+	cout << "The smallest of those 3 numbers is: " << smallest( number1 , number2 , number3 ) << endl;
+
+	system( "pause" );
+    return 0;
+}
+float smallest( float number1 , float number2 , float number3 ) {
+	float smallest = number1;
+	if( smallest > number2 ) {
+		smallest = number2;
+	}
+	if( smallest > number3 ) {
+		smallest = number3;
+	}
+	return smallest;
+}
