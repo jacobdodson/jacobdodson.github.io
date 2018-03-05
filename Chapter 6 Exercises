@@ -188,3 +188,34 @@ int main() {
 	system( "pause" );
     return 0;
 }
+
+// 2_27_2_notes.cpp : 6.40
+//
+
+#include "stdafx.h"
+#include <iostream>
+
+using namespace std;
+
+long counter{ 0 };
+
+int fib( int x ) {
+	counter += 1;
+	int result{};
+
+	if( x == 0 || x == 1 ) {
+		result = x;
+	}
+	else {
+		result = fib( x - 1 ) + fib( x - 2 );
+	}
+	return result;
+}
+
+int main()
+{
+	cout << fib(5);
+    
+	system( "pause" );
+	return 0;
+}
